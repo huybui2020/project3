@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get('/','TrangChu@home');
+Route::get('/HomePage','TrangChu@home');
 
 Auth::routes();
 
@@ -32,3 +33,20 @@ Route::resource('admin/activitylogs', 'Admin\ActivityLogsController')->only([
 Route::resource('admin/settings', 'Admin\SettingsController');
 Route::get('admin/generator', ['uses' => '\Appzcoder\LaravelAdmin\Controllers\ProcessController@getGenerator']);
 Route::post('admin/generator', ['uses' => '\Appzcoder\LaravelAdmin\Controllers\ProcessController@postGenerator']);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::resource('admin/customer', 'Admin\\CustomerController');
+Route::resource('admin/orders', 'Admin\\OrdersController');
+Route::resource('admin/products', 'Admin\\ProductsController');
+Route::resource('admin/images', 'Admin\\ImagesController');
+Route::resource('admin/catalog', 'Admin\\CatalogController');
+Route::resource('admin/comment', 'Admin\\CommentController');
+
+Route::get('/san-pham/{slug}', 'Admin\\ProductsController@display' );
+Route::get('/{slug}','Admin\\ProductsControllerr@productbycatalog' );
+
+Route::get('/catalog/{id}/active', 'Admin\\CatalogController@isActive')->name('update_active');

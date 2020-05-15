@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
 </head>
 <body>
     <div id="app">
@@ -77,7 +78,7 @@
         <hr/>
 
         <div class="container">
-            &copy; {{ date('Y') }}. Created by <a href="http://www.appzcoder.com">AppzCoder</a>
+            &copy; {{ date('Y') }}. Created by <a href="mailto:trungnhvn@gmail.com">TrungNH</a>
             <br/>
         </div>
 
@@ -99,5 +100,6 @@
     </script>
 
     @yield('scripts')
+    <script>CKEDITOR.replace( 'summary-ckeditor1');</script>  
 </body>
 </html>
